@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Picker</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <style>
+        @media (min-width:0px){
     input{
         width:80vw;
-        margin-right:10vw;
-        margin-left:10vw;
+        margin-right: 10vw;
+        margin-left: 10vw;
+        justify-content:center;
     }
     .Rslider{
+        margin-top: 5vh;
         accent-color: rgb(255, 0, 0);
     }
     .Gslider{
+        margin-top: 5vh;
         accent-color: rgb(0, 139, 0);
     }
     .Bslider{
+        margin-top: 5vh;
         accent-color: rgb(0, 0, 255);
     }
     .output{
-        height:80vh;
+        margin-top: 5vh;
+        height:40vh;
         width:80vw;
         margin-right: 10vw;
         margin-left: 10vw;
@@ -29,10 +36,33 @@
         font-family: sans-serif;
         color: #FFF;
         text-align: center;
-        font-size:x-large;
+        font-size: 5vh;
     }
     body{
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(0, 0, 0);}
+    }
+    @media (min-width: 768px) {
+        .output{
+            height:65vh;
+            margin-top:0%;}
+        .Rslider, .Bslider, .Gslider{
+            margin-top: 2%;
+        }
+    }
+    @media(min-width:1025px){
+        .output{
+            width:100%;
+            height:70vh;
+            margin-top:0%;
+            margin-left:0%;
+            margin-right:0%;
+        }
+        .Rslider, .Bslider, .Gslider{
+            margin-top: 0%;
+        }
+        p{
+            font-size:normal;
+        }
     }
 
 </style>
