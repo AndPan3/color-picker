@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Picker</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    input{
+        width:80vw;
+        margin-right:10vw;
+        margin-left:10vw;
+    }
+    .Rslider{
+        accent-color: rgb(255, 0, 0);
+    }
+    .Gslider{
+        accent-color: rgb(0, 139, 0);
+    }
+    .Bslider{
+        accent-color: rgb(0, 0, 255);
+    }
+    .output{
+        height:80vh;
+        width:80vw;
+        margin-right: 10vw;
+        margin-left: 10vw;
+    }
+    p{
+        font-family: sans-serif;
+        color: #FFF;
+        text-align: center;
+        font-size:x-large;
+    }
+    body{
+        background-color: rgb(0, 0, 0);
+    }
+
+</style>
+</head>
+<body>
+    <div class="output"></div>
+    <div class="Rsliderdiv">
+    <input type="range" min="0" max="255" value="127" class="Rslider" id="Rslider">
+    </div>
+
+    <div class="Gsliderdiv">
+    <input type="range" min="0" max="255" value="127" class="Gslider" id="Gslider">
+    </div>
+
+    <div class="Bsliderdiv">
+    <input type="range" min="0" max="255" value="127" class="Bslider" id="Bslider">
+    </div>
+        <div id="text">
+    <p class="rgb"></p>
+    <p class="hex"></p>
+    </div>
+    <script>
+            const rSlider = document.getElementById("Rslider");
+            const gSlider = document.getElementById("Gslider");
+            const bSlider = document.getElementById("Bslider");
+            const rgbhtml = document.querySelector(".rgb")
+            const hexhtml = document.querySelector(".hex")
+            const output = document.querySelector(".output")
+            function colorupdate (){
+                const rvalue = rSlider.value
+                const bvalue = bSlider.value
+                const gvalue = gSlider.value
+                const RGB = `rgb(${rvalue}, ${gvalue}, ${bvalue})`
+                output.style.backgroundColor= RGB
+                const RGBP = `${rvalue},${gvalue},${bvalue}`
+                
+                let numred = Number(rvalue)
+                let numgreen = Number(gvalue)
+                let numblue = Number(bvalue)
+
+                let hexred = numred.toString(16)
+                let hexgreen = numgreen.toString(16)
+                let hexblue = numblue.toString(16)
+
+                if (hexred.length == 1){
+                    hexred = "0" + hexred
+                }
+
+                if (hexblue.length == 1){
+                    hexblue = "0" + hexblue
+                }
+
+                if (hexgreen.length == 1){
+                    hexgreen = "0" + hexgreen
+                }
+
+                const hexcode = `#${hexred}${hexgreen}${hexblue}`
+                rgbhtml.textContent=RGBP
+                hexhtml.textContent= hexcode.toUpperCase()
+                
+            }
+        rSlider.addEventListener("input", colorupdate);
+        gSlider.addEventListener("input", colorupdate);
+        bSlider.addEventListener("input", colorupdate);
+        colorupdate();
+        </script>
+</body>
+</html>
